@@ -1,0 +1,98 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]eleases/
+[Rr]eleasesPublic/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Aa][Rr][Mm][Oo][Ss]/
+[Aa][Rr][Mm][Oo][Ss]64/
+bin/
+obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.nupkg.*.sha512
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.suo.*
+*.nib
+*.swp
+*.swo
+
+# MonoDevelop
+*.userprefs
+
+# File-based project configurations
+*.csproj.user
+*.csproj.ide
+*.csproj.userosscache
+*.csproj*
+*.csproj.*
+*.csproj.*
+*.vbproj.user
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+
+
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Web files
+wwwroot/
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# JetBrains Rider
+.idea/
+
+# Windows image file caches
+Thumbs.db
+Desktop.ini
+
+# JetBrains Rider
+.idea/
+
+
+#SeedData
+*/SeedData/*.csv
+DB/
