@@ -6,8 +6,8 @@ namespace FlightSchedule.Repositories
     {
         IQueryable<T> GetAll();
         IQueryable<T> Get(Expression<Func<T, bool>> predicate);
-        bool IsExist(Expression<Func<T, bool>> predicate);
-        void Add(T entity);
-        void Remove(T entity);
+        Task<bool> IsExistAsync(Expression<Func<T, bool>> predicate);
+        Task AddAsync(T entity);
+        void RemoveAsync(T entity);
     }
 }

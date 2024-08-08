@@ -15,7 +15,7 @@ using Microsoft.Extensions.Logging;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         try
         {
@@ -46,6 +46,7 @@ public class Program
             builder.Services.AddScoped<IFlightService, FlightService>();
             builder.Services.AddScoped<IRouteService, RouteService>();
             builder.Services.AddScoped<ISubscriptionService, SubscriptionService>();
+            builder.Services.AddScoped<IChangeDetectionStrategyFactory, ChangeDetectionStrategyFactory>(); 
 
             var app = builder.Build();
 
@@ -79,12 +80,17 @@ public class Program
             {
                 var services = serviceScope.ServiceProvider;
 
-                var flightService = services.GetRequiredService<IFlightService>();
+
+                //using factory design pattern 
+                var strategyFactory = services.GetRequiredService<IChangeDetectionStrategyFactory>();
+                var strategy1 = strategyFactory.CreateStrategy("Strategy1");
+
+
                 System.Console.WriteLine($"Start Detection...");
 
                 var stopwatch = Stopwatch.StartNew();
 
-                var results = flightService.DetectChanges(startDate, endDate, agencyId);
+                var results = await strategy1.DetectChanges(startDate, endDate, agencyId);
 
                 stopwatch.Stop();
                 var elapsedMs = stopwatch.ElapsedMilliseconds;
@@ -96,6 +102,10 @@ public class Program
                 WriteChangesToCsv(results, "results.csv");
 
             }
+
+           
+
+
         }
         catch (Exception ex)
         {

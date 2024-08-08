@@ -4,6 +4,6 @@ namespace FlightSchedule.Service.Contracts
 {
     public interface IRouteService
     {
-        List<RouteDto> GetAll(List<SubscriptionDto> subscriptions);
+        Task<int[]> GetAll(DateOnly startDate, DateOnly endDate, int agencyId);
     }
 }

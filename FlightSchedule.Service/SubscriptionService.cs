@@ -2,6 +2,7 @@
 using FlightSchedule.EntityBase.Entity;
 using FlightSchedule.Repositories;
 using FlightSchedule.Service.Contracts;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace FlightSchedule.Service
@@ -19,15 +20,15 @@ namespace FlightSchedule.Service
 
 
 
-        public List<SubscriptionDto> GetAll(int agencyId)
+        public async Task<List<SubscriptionDto>> GetAllAsync(int agencyId)
         {
             Expression<Func<Subscription, bool>> filterSubscription = w => w.AgencyId==agencyId;
-            return _unitOfWork.SubscriptionRepository.Get(filterSubscription).Select(a=>new SubscriptionDto()
+            return await _unitOfWork.SubscriptionRepository.Get(filterSubscription).Select(a=>new SubscriptionDto()
             {
                 AgencyId = a.AgencyId,
                 DestinationCityId = a.DestinationCityId,
                 OriginCityId=a.OriginCityId
-            }).ToList();
+            }).ToListAsync();
         }
     }
 }

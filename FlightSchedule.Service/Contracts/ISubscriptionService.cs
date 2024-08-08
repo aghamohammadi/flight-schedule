@@ -4,6 +4,6 @@ namespace FlightSchedule.Service.Contracts
 {
     public interface ISubscriptionService
     {
-        List<SubscriptionDto> GetAll(int agencyId);
+        Task<List<SubscriptionDto>> GetAllAsync(int agencyId);
     }
 }
