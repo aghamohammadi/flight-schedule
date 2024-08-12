@@ -1,4 +1,3 @@
-<h3 align="center" style="text-align: center;">Backend Developer Interview Task</h3>
 
 # Goal
 
